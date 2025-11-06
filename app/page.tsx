@@ -73,11 +73,9 @@ export default function HomePage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: messageText,
-          agent_id: 'portfolio-assistant',
-          conversation_context: messages.map(m => ({
-            type: m.type,
-            content: m.content
-          }))
+          agent_id: process.env.NEXT_PUBLIC_AGENT_ID || '68fd263d71c6b27d6c8eb80f',
+          user_id: `user-${Date.now()}`,
+          session_id: `session-${Date.now()}`
         })
       })
 
