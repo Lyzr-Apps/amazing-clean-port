@@ -116,7 +116,11 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4 relative">
+    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden" style={{
+      background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',
+      backgroundSize: '400% 400%',
+      animation: 'gradient 15s ease infinite'
+    }}>
       {/* Dancing Monkey */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="relative w-48 h-48">
@@ -320,6 +324,18 @@ export default function HomePage() {
       </div>
 
       <style jsx>{`
+        @keyframes gradient {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+
         @keyframes swing-left {
           0%, 100% {
             transform: rotate(0deg);
