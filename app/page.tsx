@@ -116,9 +116,63 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4 relative">
+      {/* Dancing Monkey */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="relative w-48 h-48">
+          {/* Monkey body */}
+          <div className="absolute inset-0 flex items-center justify-center animate-bounce" style={{ animationDuration: '1s' }}>
+            {/* Head */}
+            <div className="relative">
+              {/* Ears */}
+              <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 flex gap-8">
+                <div className="w-10 h-10 bg-orange-400 rounded-full" />
+                <div className="w-10 h-10 bg-orange-400 rounded-full" />
+              </div>
+
+              {/* Face */}
+              <div className="w-20 h-20 bg-orange-300 rounded-full flex items-center justify-center relative">
+                {/* Eyes */}
+                <div className="absolute flex gap-6 top-5">
+                  <div className="w-3 h-3 bg-slate-900 rounded-full animate-pulse" />
+                  <div className="w-3 h-3 bg-slate-900 rounded-full animate-pulse" />
+                </div>
+
+                {/* Mouth */}
+                <div className="absolute top-12 text-2xl">
+                  😄
+                </div>
+              </div>
+
+              {/* Body */}
+              <div className="mt-2 w-16 h-20 bg-orange-400 rounded-lg mx-auto relative">
+                {/* Arms - dancing motion */}
+                <div className="absolute -left-8 top-2 w-6 h-12 bg-orange-300 rounded-full transform-gpu" style={{
+                  animation: 'swing-left 0.8s ease-in-out infinite',
+                  transformOrigin: 'top center'
+                }} />
+                <div className="absolute -right-8 top-2 w-6 h-12 bg-orange-300 rounded-full transform-gpu" style={{
+                  animation: 'swing-right 0.8s ease-in-out infinite',
+                  transformOrigin: 'top center'
+                }} />
+
+                {/* Legs */}
+                <div className="absolute -bottom-6 left-1 w-5 h-8 bg-orange-300 rounded-full" />
+                <div className="absolute -bottom-6 right-1 w-5 h-8 bg-orange-300 rounded-full" />
+              </div>
+
+              {/* Tail */}
+              <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-3 h-20 bg-orange-600 rounded-full" style={{
+                animation: 'wiggle 0.6s ease-in-out infinite',
+                transformOrigin: 'top center'
+              }} />
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Main content - placeholder for website */}
-      <div className="text-center max-w-2xl">
+      <div className="text-center max-w-2xl relative z-10">
         <h1 className="text-5xl font-bold text-white mb-4">
           Shreyas Kapale
         </h1>
@@ -264,6 +318,38 @@ export default function HomePage() {
           </div>
         )}
       </div>
+
+      <style jsx>{`
+        @keyframes swing-left {
+          0%, 100% {
+            transform: rotate(0deg);
+          }
+          50% {
+            transform: rotate(-45deg);
+          }
+        }
+
+        @keyframes swing-right {
+          0%, 100% {
+            transform: rotate(0deg);
+          }
+          50% {
+            transform: rotate(45deg);
+          }
+        }
+
+        @keyframes wiggle {
+          0%, 100% {
+            transform: rotate(0deg);
+          }
+          25% {
+            transform: rotate(15deg);
+          }
+          75% {
+            transform: rotate(-15deg);
+          }
+        }
+      `}</style>
     </div>
   )
 }
